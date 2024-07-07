@@ -1,22 +1,41 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+import Item from '../components/Item';
 ---
 
 <Layout title="Motores">
 	<main>
 		<h1 class="text-center text-5xl">Inventario ElectroTorrez</h1>
+		<section class="w-full h-auto flex justify-center">
+			<table border="1" >
+				<thead>
+					<tr class="bg-gray-800">
+						<th class="px-4">Motor</th>
+						<th class="px-4">HP</th>
+						<th class="px-4">Calibre</th>
+						<th class="px-4">Cliente</th>
+						<th class="px-4">fecha de llegada</th>
+						<th class="px-4">Fechad de reparacion</th>
+					</tr>
+				</thead>
+				<tbody>
+					<Item
+						motor={"pedrollo"}
+					    calibre={1.2} 
+						cliente={"armando"} 
+						hp={3} 
+						llegada={"03/03/2024"} 
+						reparacion={"21/03/2024"}/>
+				</tbody>
+			</table>
+		</section>
 	</main>
 </Layout>
 
 <style>
 	main {
-		margin: auto;
-		padding: 1rem;
-		width: 800px;
-		max-width: calc(100% - 2rem);
+		width: 100%;
 		color: white;
 		font-size: 20px;
-		line-height: 1.6;
 	}
 </style>
