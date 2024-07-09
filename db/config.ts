@@ -9,7 +9,13 @@ const Motor = defineTable({
     rpm: column.number(),
     volt: column.number(),
     amp: column.number(),
-    modelo: column.text()
+    modelo: column.text(),
+    pasoArranque: column.number(),
+    vueltasArranque: column.number(),
+    calibreArranque: column.number(),
+    pasoMarcha: column.number(),
+    vueltaMarcha: column.number(),
+    calibreMarcha: column.number()
   }
 });
 
