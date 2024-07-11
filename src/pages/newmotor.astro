@@ -1,0 +1,34 @@
+---
+import Layout from "../layouts/Layout.astro"
+---
+
+<Layout title="Crear nuevo motor">
+    <main class="h-auto w-full flex  flex-col justify-center items-center">
+        <h1 class="text-white text-5xl text-center my-6">Agrega un nuevo motor</h1>
+        <p class="text-white text-2xl text-center">luego podras asociarlo a algun cliente</p>
+        <div class="bg-slate-600 w-auto rounded-2xl">
+            <h2 class="text-center text-3xl px-3 py-2">datos de la placa</h2>
+            <div class="mx-8">
+                <label class="text-2xl">Marca:</label>
+                <input type="text">
+            </div>
+            <div>
+                <label>HP:</label>
+                <input type="number">
+                <label for="rpm">RPM:</label>
+                <input type="number" id="rmp">
+            </div>
+            <div>
+                <label>Volt:</label>
+                <input type="number">
+                <label>AMP:</label>
+                <input type="number">
+            </div>
+            <div>
+                <label>Modelo:</label>
+                <input type="text">
+            </div>
+        </div>
+    </main>
+</Layout>
+

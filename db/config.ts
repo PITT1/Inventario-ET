@@ -2,7 +2,15 @@ import { column, defineDb, defineTable, TRUE } from 'astro:db';
 
 // https://astro.build/db/config
 
-const Motor = defineTable({
+const Clientes = defineTable({
+  columns:{
+    clientID: column.number({primaryKey: true}),
+    fecha: column.date(),
+    nombre: column.text()
+  }
+});
+
+const Motors = defineTable({
   columns:{
     motorID: column.number({references: () => Clientes.columns.clientID }),
     marca: column.text(),
@@ -16,18 +24,11 @@ const Motor = defineTable({
     calibreArranque: column.number(),
     pasoMarcha: column.number(),
     vueltaMarcha: column.number(),
-    calibreMarcha: column.number()
-  }
-});
-
-const Clientes = defineTable({
-  columns:{
-    clientID: column.number({primaryKey: true}),
-    fecha: column.date(),
-    nombre: column.text()
+    calibreMarcha: column.number(),
+    observaciones: column.text()
   }
 });
 
 export default defineDb({
-  tables: { Motor, Clientes }
+  tables: { Motors, Clientes }
 });
