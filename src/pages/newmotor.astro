@@ -28,6 +28,39 @@ import Layout from "../layouts/Layout.astro"
                 <label>Modelo:</label>
                 <input class="text-black ml-3" type="text">
             </div>
+            <h2 class="text-center text-3xl px3 py-2">Datos internos</h2>
+            <div class="w-auto h-auto text-black flex">
+                <div class="bg-red-500 w-20">
+                    <h3 class="text-center">B.M</h3>
+                    <div class="flex justify-center">
+                        <label for="pasoMarcha">P:</label>
+                        <input class="w-14" type="number" name="pasoMarcha" id="pasoMarcha">
+                    </div>
+                    <div class="flex justify-center">
+                        <label for="vueltasMarcha">V:</label>
+                        <input class="w-14" type="number" name="vueltasMarcha" id="vueltasMarcha">
+                    </div>
+                    <div class="flex justify-center">
+                        <label for="calibreMarcha">C:</label>
+                        <input class="w-14" type="number" name="calibreMarcha" id="calibreMarcha">
+                    </div>
+                </div>
+                <div class="bg-red-500 w-20">
+                    <h3 class="text-center">B.A</h3>
+                    <div class="flex justify-center">
+                        <label for="pasoArranque">P:</label>
+                        <input class="w-14" type="number" name="pasoArranque" id="pasoArranque">
+                    </div>
+                    <div class="flex justify-center">
+                        <label for="vueltasArranque">V:</label>
+                        <input class="w-14" type="number" name="vueltasArranque" id="vueltasArranque">
+                    </div>
+                    <div class="flex justify-center">
+                        <label for="calibreArranque">C:</label>
+                        <input class="w-14" type="number" name="calibreArranque" id="calibreArranque">
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
 </Layout>
