@@ -6,27 +6,27 @@ import Layout from "../layouts/Layout.astro"
     <main class="h-auto w-full flex  flex-col justify-center items-center">
         <h1 class="text-white text-5xl text-center my-6">Agrega un nuevo motor</h1>
         <p class="text-white text-2xl text-center">luego podras asociarlo a algun cliente</p>
-        <div class="bg-slate-600 w-auto rounded-2xl">
+        <div class="bg-slate-600 w-auto rounded-2xl text-white">
             <h2 class="text-center text-3xl px-3 py-2">datos de la placa</h2>
-            <div class="mx-8">
+            <div class="mx-8 mb-4 flex justify-center text-2xl">
                 <label class="text-2xl">Marca:</label>
-                <input type="text">
+                <input class="text-black ml-3" type="text">
             </div>
-            <div>
+            <div class="text-2xl mb-4 flex justify-center">
                 <label>HP:</label>
-                <input type="number">
-                <label for="rpm">RPM:</label>
-                <input type="number" id="rmp">
+                <input class="text-black w-28 px-2 ml-3" type="number">
+                <label>RPM:</label>
+                <input class="text-black w-28 ml-3" type="number">
             </div>
-            <div>
+            <div class="text-2xl mb-4 flex justify-center">
                 <label>Volt:</label>
-                <input type="number">
+                <input class="text-black w-28 ml-3" type="number">
                 <label>AMP:</label>
-                <input type="number">
+                <input class="text-black w-28 ml-3" type="number">
             </div>
-            <div>
+            <div class="text-2xl w-full flex justify-center mb-4">
                 <label>Modelo:</label>
-                <input type="text">
+                <input class="text-black ml-3" type="text">
             </div>
         </div>
     </main>
