@@ -1,26 +1,31 @@
 ---
 import Layout from "../layouts/Layout.astro"
+import { db, Motors } from "astro:db";
+
+if(Astro.request.method === 'POST'){
+
+}
 ---
 
 <Layout title="Crear nuevo motor">
     <main class="h-auto w-full flex  flex-col justify-center items-center">
         <h1 class="text-white text-5xl text-center my-6">Agrega un nuevo motor</h1>
         <p class="text-white text-2xl text-center">luego podras asociarlo a algun cliente</p>
-        <div class="bg-slate-600 w-auto rounded-2xl text-white">
+        <form method="POST" class="bg-slate-600 w-auto rounded-2xl text-white">
             <h2 class="text-center text-3xl px-3 py-2">datos de la placa</h2>
             <div class="mx-8 mb-4 flex justify-center text-2xl">
-                <label class="text-2xl">Marca:</label>
-                <input class="text-black ml-3" type="text">
+                <label for="marca" class="text-2xl">Marca:</label>
+                <input name="marca" id="marca" class="text-black ml-3" type="text">
             </div>
             <div class="text-2xl mb-4 flex justify-center">
-                <label>HP:</label>
-                <input class="text-black w-28 px-2 ml-3" type="number">
+                <label for="hp">HP:</label>
+                <input name="hp" id="hp" class="text-black w-28 px-2 ml-3" type="number">
                 <label>RPM:</label>
                 <input class="text-black w-28 ml-3" type="number">
             </div>
             <div class="text-2xl mb-4 flex justify-center">
                 <label>Volt:</label>
-                <input class="text-black w-28 ml-3" type="number">
+                <input class="text-black w-28 ml-3" type="text">
                 <label>AMP:</label>
                 <input class="text-black w-28 ml-3" type="number">
             </div>
@@ -29,39 +34,53 @@ import Layout from "../layouts/Layout.astro"
                 <input class="text-black ml-3" type="text">
             </div>
             <h2 class="text-center text-3xl px3 py-2">Datos internos</h2>
-            <div class="w-auto h-auto text-black flex">
-                <div class="bg-red-500 w-20">
+            <div class="w-auto h-auto text-white flex flex-col items-center">
+                <div class="bg-teal-700 w-auto font-bold rounded-md">
                     <h3 class="text-center">B.M</h3>
-                    <div class="flex justify-center">
+                    <div class="flex justify-center px-5">
                         <label for="pasoMarcha">P:</label>
-                        <input class="w-14" type="number" name="pasoMarcha" id="pasoMarcha">
+                        <input class=" text-black" type="text" name="pasoMarcha" id="pasoMarcha">
                     </div>
-                    <div class="flex justify-center">
+                    <div class="flex justify-center px-5">
                         <label for="vueltasMarcha">V:</label>
-                        <input class="w-14" type="number" name="vueltasMarcha" id="vueltasMarcha">
+                        <input class=" text-black" type="text" name="vueltasMarcha" id="vueltasMarcha">
                     </div>
-                    <div class="flex justify-center">
+                    <div class="flex justify-center px-5 mb-5">
                         <label for="calibreMarcha">C:</label>
-                        <input class="w-14" type="number" name="calibreMarcha" id="calibreMarcha">
+                        <input class=" text-black" type="text" name="calibreMarcha" id="calibreMarcha">
                     </div>
                 </div>
-                <div class="bg-red-500 w-20">
+                <div class="bg-teal-700 w-auto font-bold mt-5 rounded-md">
                     <h3 class="text-center">B.A</h3>
-                    <div class="flex justify-center">
+                    <div class="flex justify-center px-5">
                         <label for="pasoArranque">P:</label>
-                        <input class="w-14" type="number" name="pasoArranque" id="pasoArranque">
+                        <input class=" text-black" type="text" name="pasoArranque" id="pasoArranque">
                     </div>
                     <div class="flex justify-center">
-                        <label for="vueltasArranque">V:</label>
-                        <input class="w-14" type="number" name="vueltasArranque" id="vueltasArranque">
+                        <label for="vueltasArranque px-5">V:</label>
+                        <input class=" text-black" type="text" name="vueltasArranque" id="vueltasArranque">
                     </div>
-                    <div class="flex justify-center">
+                    <div class="flex justify-center px-5 mb-5">
                         <label for="calibreArranque">C:</label>
-                        <input class="w-14" type="number" name="calibreArranque" id="calibreArranque">
+                        <input class=" text-black" type="text" name="calibreArranque" id="calibreArranque">
+                    </div>
+                </div>
+                <div class="w-full font-bold mt-5">
+                    <h3 class="text-center text-2xl">Conexion interna</h3>
+                    <div class="flex justify-center mx-7">
+                        <label for="bobinadoMarha">B.M:</label>
+                        <input class="w-full text-black" type="text" name="bobinadoMarcha" id="bobinadoMarcha">
+                    </div>
+                    <div class="flex justify-center mx-7">
+                        <label for="bobinadoArranque">B.A:</label>
+                        <input class="w-full text-black" type="text" name="bobinadoArranque" id="bobinadoArranque">
                     </div>
                 </div>
             </div>
-        </div>
+            <div class="flex justify-center items-center">
+                <button class="text-center py-3 px-6 my-7 bg-green-600 font-semibold rounded-lg transition-all hover:bg-green-800" type="submit">Aceptar</button>
+            </div>
+        </form>
     </main>
 </Layout>
 

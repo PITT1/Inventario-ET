@@ -16,15 +16,15 @@ const Motors = defineTable({
     marca: column.text(),
     hp: column.number(),
     rpm: column.number(),
-    volt: column.number(),
+    volt: column.text(),
     amp: column.number(),
     modelo: column.text(),
-    pasoArranque: column.number(),
-    vueltasArranque: column.number(),
-    calibreArranque: column.number(),
-    pasoMarcha: column.number(),
-    vueltaMarcha: column.number(),
-    calibreMarcha: column.number(),
+    pasoArranque: column.text(),
+    vueltasArranque: column.text(),
+    calibreArranque: column.text(),
+    pasoMarcha: column.text(),
+    vueltaMarcha: column.text(),
+    calibreMarcha: column.text(),
     observaciones: column.text()
   }
 });
