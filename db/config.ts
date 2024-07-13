@@ -12,12 +12,11 @@ const Clientes = defineTable({
 
 const Motors = defineTable({
   columns:{
-    motorID: column.number({references: () => Clientes.columns.clientID }),
     marca: column.text(),
-    hp: column.number(),
-    rpm: column.number(),
+    hp: column.text(),
+    rpm: column.text(),
     volt: column.text(),
-    amp: column.number(),
+    amp: column.text(),
     modelo: column.text(),
     pasoArranque: column.text(),
     vueltasArranque: column.text(),
