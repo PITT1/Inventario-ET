@@ -1,20 +1,16 @@
 ---
-import { formDataToObject } from "astro:actions";
 import Layout from "../layouts/Layout.astro"
 import { db, Motors } from "astro:db";
 
-if(Astro.request.method === 'POST'){
+if (Astro.request.method === 'POST') {
     const formData = await Astro.request.formData();
-    const marca = formData.get('marca');
-    const hp = formData.get('hp');
-    const rpm = formData.get('rpm');
-    const volt = formData.get('volt');
-    const amp = formData.get('amp');
+    const marca = formData.get('marca').toString();
+    const hp = formData.get('hp').toString();
+    const rpm = formData.get('rpm').toString();
 
-    if(typeof marca === 'string'){
-        
-    }
+    await db.insert(Motors).values({ marca, hp, rpm });
 }
+
 ---
 
 <Layout title="Crear nuevo motor">
@@ -25,19 +21,19 @@ if(Astro.request.method === 'POST'){
             <h2 class="text-center text-3xl px-3 py-2">datos de la placa</h2>
             <div class="mx-8 mb-4 flex justify-center items-center text-2xl">
                 <label for="marca" class="text-2xl">Marca:</label>
-                <input name="marca" id="marca" class="text-black ml-3 p-2 bg-slate-300 shadow-xl" type="text">
+                <input name="marca" class="text-black ml-3 p-2 bg-slate-300 shadow-xl" type="text">
             </div>
             <div class="text-2xl mb-4 flex justify-center items-center">
                 <label for="hp">HP:</label>
-                <input name="hp" id="hp" class="text-black w-28 px-2 ml-3 p-2 bg-slate-300 shadow-xl" type="number">
+                <input name="hp" class="text-black w-28 px-2 ml-3 p-2 bg-slate-300 shadow-xl" type="text">
                 <label>RPM:</label>
-                <input name="rpm" class="text-black w-28 ml-3 p-2 bg-slate-300 shadow-xl" type="number">
+                <input name="rpm" class="text-black w-28 ml-3 p-2 bg-slate-300 shadow-xl" type="text">
             </div>
             <div class="text-2xl mb-4 flex justify-center items-center">
                 <label>Volt:</label>
                 <input name="volt" class="text-black w-28 ml-3 p-2 bg-slate-300 shadow-xl" type="text">
                 <label>AMP:</label>
-                <input name="amp" class="text-black w-28 ml-3 p-2 bg-slate-300 shadow-xl" type="number">
+                <input name="amp" class="text-black w-28 ml-3 p-2 bg-slate-300 shadow-xl" type="text">
             </div>
             <div class="text-2xl w-full flex justify-center mb-4 items-center">
                 <label>Modelo:</label>
