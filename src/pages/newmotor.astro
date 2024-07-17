@@ -18,9 +18,10 @@ if (Astro.request.method === 'POST') {
     const calibreArranque = formData.get('calibreArranque');
     const bobinadoMarcha = formData.get('bobinadoMarcha');
     const bobinadoArranque = formData.get('bobinadoArranque');
+    const id = Date.now();
 
-    if(typeof marca === "string" && typeof hp === "string" && typeof rpm === "string" && typeof volt === "string" && typeof amp === "string" && typeof modelo === "string" && typeof pasoMarcha === "string" && typeof vueltaMarcha === "string" && typeof calibreMarcha === "string" && typeof pasoArranque === "string" && typeof vueltaArranque === "string" && typeof calibreArranque === "string" && typeof bobinadoMarcha === "string" && typeof bobinadoArranque === "string"){
-        await db.insert(Motors).values({ marca, hp, rpm, volt, amp, modelo, pasoMarcha, vueltaMarcha, calibreMarcha, pasoArranque, vueltaArranque, calibreArranque, bobinadoMarcha, bobinadoArranque});
+    if(typeof id === "number" && typeof marca === "string" && typeof hp === "string" && typeof rpm === "string" && typeof volt === "string" && typeof amp === "string" && typeof modelo === "string" && typeof pasoMarcha === "string" && typeof vueltaMarcha === "string" && typeof calibreMarcha === "string" && typeof pasoArranque === "string" && typeof vueltaArranque === "string" && typeof calibreArranque === "string" && typeof bobinadoMarcha === "string" && typeof bobinadoArranque === "string"){
+        await db.insert(Motors).values({ id, marca, hp, rpm, volt, amp, modelo, pasoMarcha, vueltaMarcha, calibreMarcha, pasoArranque, vueltaArranque, calibreArranque, bobinadoMarcha, bobinadoArranque});
     }
 }
 

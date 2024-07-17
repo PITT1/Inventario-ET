@@ -4,6 +4,7 @@ import { column, defineDb, defineTable, TRUE } from 'astro:db';
 
 const Motors = defineTable({
   columns:{
+    id: column.number({ primaryKey : true }),
     marca: column.text(),
     hp: column.text(),
     rpm: column.text(),
@@ -23,11 +24,13 @@ const Motors = defineTable({
 
 const Clientes = defineTable({
   columns:{
-    nombre: column.text({unique: true}),
+    clientId: column.number({ references: () => Motors.columns.id }),
+    nombre: column.text(),
     fecha: column.text(),
+    observaciones: column.text()
   }
 })
 
 export default defineDb({
-  tables: { Motors }
+  tables: { Motors, Clientes }
 });
