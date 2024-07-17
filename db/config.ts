@@ -10,15 +10,23 @@ const Motors = defineTable({
     volt: column.text(),
     amp: column.text(),
     modelo: column.text(),
-    pasoArranque: column.text(),
-    vueltasArranque: column.text(),
-    calibreArranque: column.text(),
     pasoMarcha: column.text(),
     vueltaMarcha: column.text(),
     calibreMarcha: column.text(),
-    observaciones: column.text()
+    pasoArranque: column.text(),
+    vueltaArranque: column.text(),
+    calibreArranque: column.text(),
+    bobinadoMarcha: column.text(),
+    bobinadoArranque: column.text()
   }
 });
+
+const Clientes = defineTable({
+  columns:{
+    nombre: column.text({unique: true}),
+    fecha: column.text(),
+  }
+})
 
 export default defineDb({
   tables: { Motors }

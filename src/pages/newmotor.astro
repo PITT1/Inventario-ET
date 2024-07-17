@@ -4,11 +4,24 @@ import { db, Motors } from "astro:db";
 
 if (Astro.request.method === 'POST') {
     const formData = await Astro.request.formData();
-    const marca = formData.get('marca').toString();
-    const hp = formData.get('hp').toString();
-    const rpm = formData.get('rpm').toString();
+    const marca = formData.get('marca');
+    const hp = formData.get('hp');
+    const rpm = formData.get('rpm');
+    const volt = formData.get('volt');
+    const amp = formData.get('amp');
+    const modelo = formData.get('modelo');
+    const pasoMarcha = formData.get('pasoMarcha');
+    const vueltaMarcha = formData.get('vueltasMarcha');
+    const calibreMarcha = formData.get('calibremarcha');
+    const pasoArranque = formData.get('pasoArranque');
+    const vueltaArranque = formData.get('vueltasArranque');
+    const calibreArranque = formData.get('calibreArranque');
+    const bobinadoMarcha = formData.get('bobinadoMarcha');
+    const bobinadoArranque = formData.get('bobinadoArranque');
 
-    await db.insert(Motors).values({ marca, hp, rpm });
+    if(typeof marca === "string" && typeof hp === "string" && typeof rpm === "string" && typeof volt === "string" && typeof amp === "string" && typeof modelo === "string" && typeof pasoMarcha === "string" && typeof vueltaMarcha === "string" && typeof calibreMarcha === "string" && typeof pasoArranque === "string" && typeof vueltaArranque === "string" && typeof calibreArranque === "string" && typeof bobinadoMarcha === "string" && typeof bobinadoArranque === "string"){
+        await db.insert(Motors).values({ marca, hp, rpm, volt, amp, modelo, pasoMarcha, vueltaMarcha, calibreMarcha, pasoArranque, vueltaArranque, calibreArranque, bobinadoMarcha, bobinadoArranque});
+    }
 }
 
 ---
@@ -37,7 +50,7 @@ if (Astro.request.method === 'POST') {
             </div>
             <div class="text-2xl w-full flex justify-center mb-4 items-center">
                 <label>Modelo:</label>
-                <input class="text-black ml-3 p-2 bg-slate-300 shadow-xl" type="text">
+                <input name="modelo" class="text-black ml-3 p-2 bg-slate-300 shadow-xl" type="text">
             </div>
             <h2 class="text-center text-3xl px3 py-2">Datos internos</h2>
             <div class="w-auto h-auto text-white flex flex-col items-center">
@@ -45,41 +58,41 @@ if (Astro.request.method === 'POST') {
                     <h3 class="text-center">B.M</h3>
                     <div class="flex justify-center items-center px-5">
                         <label for="pasoMarcha">P:</label>
-                        <input class=" text-black w-full p-2 bg-slate-300 shadow-xl" type="text" name="pasoMarcha" id="pasoMarcha">
+                        <input class=" text-black w-full p-2 bg-slate-300 shadow-xl" type="text" name="pasoMarcha">
                     </div>
                     <div class="flex justify-center items-center px-5">
                         <label for="vueltasMarcha">V:</label>
-                        <input class=" text-black w-full p-2 bg-slate-300 shadow-xl" type="text" name="vueltasMarcha" id="vueltasMarcha">
+                        <input class=" text-black w-full p-2 bg-slate-300 shadow-xl" type="text" name="vueltasMarcha">
                     </div>
                     <div class="flex justify-center items-center px-5 mb-5">
                         <label for="calibreMarcha">C:</label>
-                        <input class=" text-black w-full p-2 bg-slate-300 shadow-xl" type="text" name="calibreMarcha" id="calibreMarcha">
+                        <input class=" text-black w-full p-2 bg-slate-300 shadow-xl" type="text" name="calibreMarcha">
                     </div>
                 </div>
                 <div class="bg-teal-700 w-full mt-5 rounded-md">
                     <h3 class="text-center">B.A</h3>
                     <div class="flex justify-center items-center px-5">
                         <label for="pasoArranque">P:</label>
-                        <input class=" text-black w-full p-2 bg-slate-300 shadow-xl" type="text" name="pasoArranque" id="pasoArranque">
+                        <input class=" text-black w-full p-2 bg-slate-300 shadow-xl" type="text" name="pasoArranque">
                     </div>
                     <div class="flex justify-center px-5 items-center">
                         <label for="vueltasArranque">V:</label>
-                        <input class=" text-black w-full p-2 bg-slate-300 shadow-xl" type="text" name="vueltasArranque" id="vueltasArranque">
+                        <input class=" text-black w-full p-2 bg-slate-300 shadow-xl" type="text" name="vueltasArranque">
                     </div>
                     <div class="flex justify-center items-center px-5 mb-5">
                         <label for="calibreArranque">C:</label>
-                        <input class=" text-black w-full p-2 bg-slate-300 shadow-xl" type="text" name="calibreArranque" id="calibreArranque">
+                        <input class=" text-black w-full p-2 bg-slate-300 shadow-xl" type="text" name="calibreArranque">
                     </div>
                 </div>
                 <div class="w-full mt-5">
                     <h3 class="text-center text-2xl">Conexion interna</h3>
                     <div class="flex justify-center items-center mx-7">
                         <label for="bobinadoMarha">B.M:</label>
-                        <input class="w-full text-black p-2 bg-slate-300 shadow-xl" type="text" name="bobinadoMarcha" id="bobinadoMarcha">
+                        <input class="w-full text-black p-2 bg-slate-300 shadow-xl" type="text" name="bobinadoMarcha">
                     </div>
                     <div class="flex justify-center items-center mx-7">
                         <label for="bobinadoArranque">B.A:</label>
-                        <input class="w-full text-black p-2 bg-slate-300 shadow-xl" type="text" name="bobinadoArranque" id="bobinadoArranque">
+                        <input class="w-full text-black p-2 bg-slate-300 shadow-xl" type="text" name="bobinadoArranque">
                     </div>
                 </div>
             </div>
