@@ -5,31 +5,31 @@ import Item from '../components/Item';
 
 <Layout title="Motores">
 	<main>
-		<h1 class="text-center text-5xl my-6">Base de datos ElectroTorrez</h1>
-		<section class="w-full h-auto flex justify-center">
-			<table border="1" >
-				<thead>
-					<tr class="bg-gray-800">
-						<th class="px-4">Id</th>
-						<th class="px-4">Motor</th>
-						<th class="px-4">HP</th>
-						<th class="px-4">Calibre</th>
-						<th class="px-4">Cliente</th>
-						<th class="px-4">fecha de llegada</th>
-						<th class="px-4">Fechad de reparacion</th>
+		<header>
+			<h1 class="text-center text-5xl my-6">Base de datos ElectroTorrez</h1>
+		</header>
+		<section class="w-full h-auto mb-9 flex items-start justify-center gap-5">
+			<button class="bg-green-600 rounded-xl transition-all hover:bg-green-800" type="button">
+				<a class="px-6 py-3" href="/newmotor">Agregar nuevo motor</a>
+			</button>
+			<button class="bg-green-600 rounded-xl transition-all hover:bg-green-800" type="button">
+				<a class="px-6 py-3" href="/newclient">agregar nuevo cliente</a>
+			</button>
+		</section>
+		<section class="h-[500px] w-full bg-cyan-900 grid grid-cols-2 grid-rows-1">
+			<div class="h-full w-full bg-red-950">
+				<table>
+					<tr>
+						<th>Motores</th>
 					</tr>
-				</thead>
-				<tbody>
-					<Item
-						id={0}
-						motor={"Pedrollo"}
-					    calibre={22} 
-						cliente={"armando"} 
-						hp={3} 
-						llegada={"03/03/2024"} 
-						reparacion={"21/03/2024"}/>
-				</tbody>
-			</table>
+					<tr>
+						
+					</tr>
+				</table>
+			</div>
+			<div class="h-full w-full bg-blue-700">
+
+			</div>
 		</section>
 	</main>
 </Layout>
