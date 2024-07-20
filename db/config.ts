@@ -24,7 +24,7 @@ const Motors = defineTable({
 
 const Clientes = defineTable({
   columns:{
-    clientId: column.number({ references: () => Motors.columns.id }),
+    motorId: column.number({ references: () => Motors.columns.id }),
     nombre: column.text(),
     fecha: column.text(),
     observaciones: column.text()

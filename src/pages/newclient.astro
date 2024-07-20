@@ -1,0 +1,43 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { db, Motors, Clientes } from "astro:db";
+
+if(Astro.request.method === 'POST'){
+    const formData = await Astro.request.formData();
+    const nombre = formData.get('nombre');
+    const fecha = formData.get('fecha');
+    const motorId = formData.get('motor');
+    const observaciones = formData.get('Observaciones');
+
+    if(typeof nombre === 'string' && typeof fecha === 'string' && typeof motorId === 'number' && typeof observaciones === 'string'){
+        await db.insert(Clientes).values({ nombre, fecha, motorId, observaciones });
+    }
+}
+---
+
+<Layout title="Agregar cliente">
+    <main class="h-screen w-full flex  flex-col justify-center items-center">
+        <h1 class="text-white text-5xl text-center my-6">Agrega un nuevo cliente</h1>
+        <form method="POST" class="bg-transparent w-auto rounded-2xl text-white shadow-2xl">
+            <div class="mx-8 mb-4 flex justify-center items-center text-2xl">
+                <label for="nombre" class="text-2xl">Nombre:</label>
+                <input type="text" name="nombre" class="text-black ml-3 p-2 bg-slate-300 shadow-xl">
+            </div>
+            <div class="mx-8 mb-4 flex justify-center items-center text-2xl">
+                <label for="fecha" class="text-2xl">Fecha:</label>
+                <input type="text" name="fecha" class="text-black ml-3 p-2 bg-slate-300 shadow-xl">
+            </div>
+            <div class="mx-8 mb-4 flex justify-center items-center text-2xl">
+                <label for="motor" class="text-2xl">Motor:</label>
+                <input type="number" name="motorId" class="text-black ml-3 p-2 bg-slate-300 shadow-xl">
+            </div>
+            <div class="mx-8 mb-4 flex justify-center items-center text-2xl">
+                <label for="Observaciones" class="text-2xl">Observaciones</label>
+                <textarea name="Observaciones" class="text-black ml-3 p-2 bg-slate-300 shadow-xl"></textarea>
+            </div>
+            <div class="flex justify-center items-center">
+                <button class="text-center py-3 px-6 my-7 bg-green-600 font-semibold rounded-lg transition-all hover:bg-green-800" type="submit">Aceptar</button>
+            </div>
+        </form>
+    </main>
+</Layout>
