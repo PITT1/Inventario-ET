@@ -1,18 +1,15 @@
 import PropTypes from "prop-types";
 
-const Item = ({ Nombre }) => {
+const ClienteItem = ({ nombre }) => {
   return (
-    <li className="px-8 py-2">
-
+    <li className="px-8 py-2 hover:bg-slate-300 transition-all cursor-pointer hover:text-slate-800">
+      <p>{nombre}</p>
     </li>
   );
 };
 
-Item.propTypes = {
-  id: PropTypes.number.isRequired,
-  marca: PropTypes.string.isRequired,
-  modelo: PropTypes.string.isRequired,
-  hp: PropTypes.number.isRequired
+ClienteItem.propTypes = {
+  nombre: PropTypes.string.isRequired
 };
 
-export default Item;
+export default ClienteItem;

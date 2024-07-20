@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 
 const Item = ({ marca, modelo, hp }) => {
   return (
-    <li className="px-8 py-2">
+    <li className="px-8 py-2 hover:bg-slate-300 transition-all cursor-pointer hover:text-slate-800">
         {marca}, {modelo} de {hp}hp
     </li>
   );
