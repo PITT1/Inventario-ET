@@ -3,6 +3,9 @@ import Layout from '../layouts/Layout.astro';
 import MotorItem from '../components/MotorItem';
 import ClienteItem from '../components/ClienteItem';
 import { db, Motors, Clientes } from "astro:db";
+
+const motoresDb = await db.select().from(Motors);
+const clientesDb = await db.select().from(Clientes);
 ---
 
 <Layout title="Motores">
@@ -22,26 +25,21 @@ import { db, Motors, Clientes } from "astro:db";
 			<div class="h-full w-full">
 				<h1 class="text-center border-b border-white">Motores</h1>
 				<ul class="h-full overflow-y-auto">
-					<MotorItem marca={"WAG"} modelo={"Yaskawa"} hp={5} />
-					<MotorItem marca={"WAG"} modelo={"Yaskawa"} hp={5} />
-					<MotorItem marca={"WAG"} modelo={"Yaskawa"} hp={5} />
-					<MotorItem marca={"WAG"} modelo={"Yaskawa"} hp={5} />
-					<MotorItem marca={"WAG"} modelo={"Yaskawa"} hp={5} />
-					<MotorItem marca={"WAG"} modelo={"Yaskawa"} hp={5} />
-					<MotorItem marca={"WAG"} modelo={"Yaskawa"} hp={5} />
-					<MotorItem marca={"WAG"} modelo={"Yaskawa"} hp={5} />
-					<MotorItem marca={"WAG"} modelo={"Yaskawa"} hp={5} />
-					<MotorItem marca={"WAG"} modelo={"Yaskawa"} hp={5} />
+					{
+						motoresDb.map(({ marca, hp, modelo }) => (
+							<MotorItem marca={marca} modelo={modelo} hp={hp} />
+						))
+					}
 				</ul>
 			</div>
 			<div class="h-full w-full overflow-y-auto">
 				<h1 class="border-b border-white text-center">Clientes</h1>
 				<ul>
-					<ClienteItem nombre={"armando"}/>
-					<ClienteItem nombre={"jesus"}/>
-					<ClienteItem nombre={"Gocho escalona"}/>
-					<ClienteItem nombre={"luis sabana de parra"}/>
-					<ClienteItem nombre={"Maria jimenez"}/>
+					{
+						clientesDb.map(({ nombre }) => (
+							<ClienteItem nombre={nombre} />
+						))
+					}
 				</ul>
 			</div>
 		</section>
