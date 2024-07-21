@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import MotorItem from '../components/MotorItem';
 import ClienteItem from '../components/ClienteItem';
+import HistorialItem from '../components/HistorialItem';
 import { db, Motors, Clientes } from "astro:db";
 
 const motoresDb = await db.select().from(Motors);
@@ -42,6 +43,18 @@ const clientesDb = await db.select().from(Clientes);
 					}
 				</ul>
 			</div>
+		</section>
+		<section class="w-full h-auto flex flex-col justify-center">
+			<h1 class="text-center text-4xl my-6">Historial de motores reparados</h1>
+			<table>
+				<tr>
+					<th class="py-3 px-5 text-center border-r border-white">Cliente</th>
+					<th class="py-3 px-5 text-center border-l border-r border-white">Fecha</th>
+					<th class="py-3 px-5 text-center border-l border-r border-white">Motor</th>
+					<th class="py-3 px-5 text-center border-l border-white">Observacion</th>
+				</tr>
+				<HistorialItem cliente={"pedro"} fecha={"21/12/2020"} motor={"WAG"} observacion={"Cambio de rolineras"} />
+			</table>
 		</section>
 	</main>
 </Layout>
