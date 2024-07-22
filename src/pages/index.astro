@@ -53,7 +53,11 @@ const clientesDb = await db.select().from(Clientes);
 					<th class="py-3 px-5 text-center border-l border-r border-white">Motor</th>
 					<th class="py-3 px-5 text-center border-l border-white">Observacion</th>
 				</tr>
-				<HistorialItem cliente={"pedro"} fecha={"21/12/2020"} motor={"WAG"} observacion={"Cambio de rolineras"} />
+				{
+					clientesDb.map(({ motorId, nombre, fecha, observaciones }) => (
+					<HistorialItem cliente={nombre} fecha={fecha} motor={motorId} observacion={observaciones} />
+					))
+				}
 			</table>
 		</section>
 	</main>
