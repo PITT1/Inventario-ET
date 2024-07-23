@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { db, Motors, Clientes } from "astro:db";
+import { db, Clientes } from "astro:db";
 
 if(Astro.request.method === 'POST'){
     const formData = await Astro.request.formData();
