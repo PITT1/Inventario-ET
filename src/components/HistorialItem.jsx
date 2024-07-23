@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 
 const HistorialItem = ({ cliente, fecha, motor, observacion }) => {
   return (
-       <tr>
+       <tr className="hover:bg-slate-300/85 transition-all cursor-pointer hover:text-black">
 					<td class="py-3 text-center">{cliente}</td>
 					<td class="py-3 text-center">{fecha}</td>
 					<td class="py-3 text-center">{motor}</td>
