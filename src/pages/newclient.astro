@@ -6,11 +6,20 @@ if(Astro.request.method === 'POST'){
     const formData = await Astro.request.formData();
     const nombre = formData.get('nombre');
     const fecha = formData.get('fecha');
-    const motorId = formData.get('motor');
+    const motorIdString = formData.get('motorId').toString();
+    const motorId = parseInt(motorIdString, 10);
+    
     const observaciones = formData.get('Observaciones');
 
     if(typeof nombre === 'string' && typeof fecha === 'string' && typeof motorId === 'number' && typeof observaciones === 'string'){
         await db.insert(Clientes).values({ nombre, fecha, motorId, observaciones });
+        console.log("datos enviados con exito");
+    } else {
+        console.log("Error al enviar los datos");
+        console.log("nombre: " + typeof nombre);
+        console.log("fecha: " + typeof fecha);
+        console.log("motorId: " + typeof motorId);
+        console.log("observaciones: " + typeof observaciones);
     }
 }
 ---
