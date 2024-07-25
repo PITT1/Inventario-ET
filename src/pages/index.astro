@@ -22,7 +22,7 @@ const clientesDb = await db.select().from(Clientes);
 				<a class="px-6 py-3" href="/newclient">agregar nuevo cliente</a>
 			</button>
 		</section>
-		<section class="h-[500px] w-full grid grid-cols-2 grid-rows-1 gap-2">
+		<section class="h-[500px] w-full flex flex-col sm:grid sm:grid-cols-2 sm:grid-rows-1 gap-2">
 			<div class="h-full w-full">
 				<h1 class="text-center border-b border-white">Motores</h1>
 				<ul class="h-full overflow-y-auto">
@@ -47,11 +47,11 @@ const clientesDb = await db.select().from(Clientes);
 		<section class="w-full h-auto flex flex-col justify-center">
 			<h1 class="text-center text-4xl my-6">Historial de motores reparados</h1>
 			<table>
-				<tr>
-					<th class="py-3 px-5 text-center border-r border-white">Cliente</th>
-					<th class="py-3 px-5 text-center border-l border-r border-white">Fecha</th>
-					<th class="py-3 px-5 text-center border-l border-r border-white">Motor</th>
-					<th class="py-3 px-5 text-center border-l border-white">Observacion</th>
+				<tr class="text-base sm:text-2xl">
+					<th class="py-3 px-1 sm:px-5 text-center border-r border-white">Cliente</th>
+					<th class="py-3 px-1 sm:px-5 text-center border-l border-r border-white">Fecha</th>
+					<th class="py-3 px-1 sm:px-5 text-center border-l border-r border-white">Motor</th>
+					<th class="py-3 px-1 sm:px-5 text-center border-l border-white">Observacion</th>
 				</tr>
 				{
 					clientesDb.map(({ motorId, nombre, fecha, observaciones }) => (
