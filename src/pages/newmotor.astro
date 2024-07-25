@@ -12,7 +12,7 @@ if (Astro.request.method === 'POST') {
     const modelo = formData.get('modelo');
     const pasoMarcha = formData.get('pasoMarcha');
     const vueltaMarcha = formData.get('vueltasMarcha');
-    const calibreMarcha = formData.get('calibremarcha');
+    const calibreMarcha = formData.get('calibreMarcha');
     const pasoArranque = formData.get('pasoArranque');
     const vueltaArranque = formData.get('vueltasArranque');
     const calibreArranque = formData.get('calibreArranque');
@@ -22,6 +22,23 @@ if (Astro.request.method === 'POST') {
 
     if(typeof id === "number" && typeof marca === "string" && typeof hp === "string" && typeof rpm === "string" && typeof volt === "string" && typeof amp === "string" && typeof modelo === "string" && typeof pasoMarcha === "string" && typeof vueltaMarcha === "string" && typeof calibreMarcha === "string" && typeof pasoArranque === "string" && typeof vueltaArranque === "string" && typeof calibreArranque === "string" && typeof bobinadoMarcha === "string" && typeof bobinadoArranque === "string"){
         await db.insert(Motors).values({ id, marca, hp, rpm, volt, amp, modelo, pasoMarcha, vueltaMarcha, calibreMarcha, pasoArranque, vueltaArranque, calibreArranque, bobinadoMarcha, bobinadoArranque});
+        console.log("los datos fueron enviados");
+    } else {
+        console.log("Error al enviar los datos");
+        console.log("marca: " + typeof marca);
+        console.log("hp: " + typeof hp);
+        console.log("rpm: " + typeof rpm);
+        console.log("amp: " + typeof amp);
+        console.log("modelo: " + typeof modelo);
+        console.log("pasoMarcha: " + typeof pasoMarcha);
+        console.log("vueltaMarca: " + typeof vueltaMarcha);
+        console.log("calibreMarca: " + typeof calibreMarcha);
+        console.log("pasoArranque: " + typeof pasoArranque);
+        console.log("vueltaArranque: " + typeof vueltaArranque);
+        console.log("calibreArranque: " + typeof calibreArranque);
+        console.log("bobinadoMarcha: " + typeof bobinadoMarcha);
+        console.log("bobinadoArarnque: " + typeof bobinadoArranque);
+        console.log("id: " + typeof id);
     }
 }
 
